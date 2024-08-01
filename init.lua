@@ -12,6 +12,9 @@ vim.g.have_nerd_font = true
 -- NOTE: You can change these options as you wish!
 --  For more options, you can see `:help option-list`
 
+vim.opt.termguicolors = true
+vim.opt.colorcolumn = '80'
+
 -- Make line numbers default
 vim.opt.number = true
 -- You can also add relative line numbers, to help with jumping.
@@ -701,18 +704,18 @@ require('lazy').setup({
     -- change the command in the config to whatever the name of that colorscheme is.
     --
     -- If you want to see what colorschemes are already installed, you can use `:Telescope colorscheme`.
-    'EdenEast/nightfox.nvim',
+    '0xstepit/flow.nvim',
+    lazy = false,
     priority = 1000, -- Make sure to load this before all the other start plugins.
     init = function()
-      require('nightfox').setup {
-        options = {
-          transparent = true,
-        },
+      require('flow').setup {
+        transparent = true,
+        fluo_color = 'pink',
+        mode = 'normal',
+        aggressive_spell = true,
       }
-      vim.cmd.colorscheme 'carbonfox'
 
-      -- You can configure highlights by doing something like:
-      vim.cmd.hi 'Comment gui=none'
+      vim.cmd.colorscheme 'flow'
     end,
   },
 
@@ -796,7 +799,7 @@ require('lazy').setup({
   --  Here are some example plugins that I've included in the Kickstart repository.
   --  Uncomment any of the lines below to enable them (you will need to restart nvim).
   --
-  require 'kickstart.plugins.debug',
+  -- require 'kickstart.plugins.debug',
   require 'kickstart.plugins.indent_line',
   require 'kickstart.plugins.lint',
   require 'kickstart.plugins.autopairs',
