@@ -15,6 +15,11 @@ vim.g.have_nerd_font = true
 vim.opt.termguicolors = true
 vim.opt.colorcolumn = '80'
 
+vim.opt.tabstop = 2
+vim.opt.softtabstop = 2
+vim.opt.shiftwidth = 2
+vim.opt.expandtab = true
+
 -- Make line numbers default
 vim.opt.number = true
 -- You can also add relative line numbers, to help with jumping.
