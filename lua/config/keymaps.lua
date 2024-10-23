@@ -14,7 +14,7 @@ map("n", "<leader><C-s>", "<cmd>w<cr><cmd>so<cr>", opts) -- save and source curr
 map("n", "<leader>q", "<cmd>q<cr>", opts)
 
 -- NeoTree
-map("n", "<leader>e", "<cmd>Neotree filesystem reveal bottom<cr>", opts)
+map("n", "<leader>e", "<cmd>Neotree filesystem toggle float<cr>", opts)
 
 -- Lazy
 map("n", "<leader>l", "<cmd>Lazy<cr>", opts)
