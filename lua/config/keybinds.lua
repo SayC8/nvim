@@ -2,7 +2,7 @@ local map = vim.keymap.set
 vim.g.mapleader = " "
 
 -- Files 
-map("n", "<leader>e", ":Ex<CR>", { desc = "Open file explorer" })
+map("n", "<leader>e", ":Oil<CR>", { desc = "Open file explorer" })
 map("n", "<leader>ff", ":find ", { desc = "Find file" })
 map("n", "<leader>w", ":w<CR>", { desc = "Save current file" })
 map("n", "<leader>o", ":so<CR>", { desc = "Source current file" })
