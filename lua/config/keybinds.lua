@@ -23,6 +23,7 @@ map("n", "<C-u>", "<C-u>zz", { desc = "Half page up (centered)" })
 -- Buffers
 map("n", "<leader>bn", ":bnext<CR>", { desc = "Next buffer" })
 map("n", "<leader>bp", ":bprevious<CR>", { desc = "Previous buffer" })
+map("n", "<leader>bc", ":bdelete<CR>", { desc = "Delete current buffer" })
 
 -- Splitting and resizing
 map("n", "<leader>sv", ":vsplit<CR>", { desc = "Split window vertically" })
