@@ -1,11 +1,15 @@
 local map = vim.keymap.set
 vim.g.mapleader = " "
 
--- Files 
+-- Files
 map("n", "<leader>e", ":Oil<CR>", { desc = "Open file explorer" })
 map("n", "<leader>ff", ":find ", { desc = "Find file" })
 map("n", "<leader>w", ":w<CR>", { desc = "Save current file" })
 map("n", "<leader>o", ":so<CR>", { desc = "Source current file" })
+
+-- LSP etc
+map("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Code actions" })
+map("n", "<leader>cf", vim.lsp.buf.format, { desc = "Format" })
 
 -- Y to EOL
 map("n", "Y", "y$", { desc = "Yank to end of line" })
@@ -29,10 +33,10 @@ map("n", "<C-Left>", ":vertical resize -2<CR>", { desc = "Decrease window width"
 map("n", "<C-Right", ":vertical resize +2<CR>", { desc = "Increase window width" })
 
 -- Better window navigation
-map("n", "<C-h>", "<C-w>h", { desc = "Move to left window" }) 
-map("n", "<C-j>", "<C-w>j", { desc = "Move to bottom window" }) 
-map("n", "<C-k>", "<C-w>k", { desc = "Move to top window" }) 
-map("n", "<C-l>", "<C-w>l", { desc = "Move to right window" }) 
+map("n", "<C-h>", "<C-w>h", { desc = "Move to left window" })
+map("n", "<C-j>", "<C-w>j", { desc = "Move to bottom window" })
+map("n", "<C-k>", "<C-w>k", { desc = "Move to top window" })
+map("n", "<C-l>", "<C-w>l", { desc = "Move to right window" })
 
 -- Move lines up/down
 map("n", "<A-j>", ":m .+1<CR>", { desc = "Move line down" })
