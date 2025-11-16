@@ -1,10 +1,3 @@
---- THEME & TRANSPARENCY -------------------------
---------------------------------------------------
-vim.cmd.colorscheme("unokai")
-vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
-vim.api.nvim_set_hl(0, "NormalNC", { bg = "none" })
-vim.api.nvim_set_hl(0, "EndOfBuffer", { bg = "none" })
-
 --- CONFIGS --------------------------------------
 --------------------------------------------------
 require("config.options")
@@ -29,18 +22,34 @@ vim.pack.add({
   { src = "https://github.com/norcalli/nvim-colorizer.lua" },
 })
 require("colorizer").setup()
-require("oil").setup()
+require("oil").setup({
+  keymaps = {
+    ["q"] = { "actions.close", mode = "n" },
+  },
+  columns = {
+    "permissions",
+    "size",
+    "mtime",
+    "icon",
+  },
+  view_options = {
+    show_hidden = true,
+  },
+})
 
 -- MINI
 vim.pack.add({
   { src = "https://github.com/nvim-mini/mini.nvim" },
 })
+require("mini.icons").setup()
 require("mini.git").setup()
 require("mini.diff").setup()
 require("mini.pairs").setup()
 require("mini.surround").setup()
 require("mini.trailspace").setup()
 require("mini.indentscope").setup()
+require("mini.statusline").setup()
+require("mini.tabline").setup()
 
 local miniclue = require('mini.clue')
 miniclue.setup({
@@ -86,3 +95,10 @@ miniclue.setup({
     miniclue.gen_clues.z(),
   },
 })
+
+--- THEME & TRANSPARENCY -------------------------
+--------------------------------------------------
+vim.cmd.colorscheme("miniwinter")
+vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+vim.api.nvim_set_hl(0, "NormalNC", { bg = "none" })
+vim.api.nvim_set_hl(0, "EndOfBuffer", { bg = "none" })
