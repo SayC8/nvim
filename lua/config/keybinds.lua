@@ -7,6 +7,9 @@ map("n", "<leader>ff", ":find ", { desc = "Find file" })
 map("n", "<leader>w", ":w<CR>", { desc = "Save current file" })
 map("n", "<leader>o", ":so<CR>", { desc = "Source current file" })
 
+-- Terminal
+map("n", "<leader>t", ":term ", { desc = "Run command in terminal" })
+
 -- LSP etc
 map("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Code actions" })
 map("n", "<leader>cf", vim.lsp.buf.format, { desc = "Format" })
