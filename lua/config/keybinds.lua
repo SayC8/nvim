@@ -55,24 +55,38 @@ map("v", ">", ">gv", { desc = "Indent left and reselect" })
 -- Better J behaviour
 map("n", "J", "mzJ`z", { desc = "Join lines and keep cursor position" })
 
--- Extra functions
+-- Compilation/Running
 map("n", "<F7>",
   function()
     local filename = vim.fn.expand("%")
     local basename = vim.fn.expand("%:r")
     local filetype = vim.bo.filetype
     local cmd = nil
-    local createSplit = ":split<CR>:"
+
     if filetype == "lua" then
       cmd = "term lua " .. filename
+    elseif filetype == "go" then
+      cmd = "term go run"
     elseif filetype == "c" then
-      cmd = "term make"
+      local makefile = io.open("Makefile", "r")
+      local buildsh = io.open("build.sh", "r")
+      if makefile then
+        cmd = "term make"
+        makefile:close()
+      elseif buildsh then
+        cmd = "term ./build.sh"
+        buildsh:close()
+      else
+        print("No Makefile or build.sh found!")
+        return
+      end
     end
+
     if cmd then
       vim.cmd("w|split|resize 12|" .. cmd)
       vim.cmd("$")
     else
-      print("No interpreter or compiler defined for filetype: '" .. filetype .. "'")
+      print("No compilation command defined for filetype: '" .. filetype .. "'")
     end
   end,
   { desc = "Compile/Run" })
