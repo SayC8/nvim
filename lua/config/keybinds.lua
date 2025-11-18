@@ -2,7 +2,7 @@ local map = vim.keymap.set
 vim.g.mapleader = " "
 
 -- Files
-map("n", "<leader>e", ":Oil --float<CR>", { desc = "Open file explorer" })
+map("n", "<leader>e", ":Oil<CR>", { desc = "Open file explorer" })
 map("n", "<leader>ff", ":find ", { desc = "Find file" })
 map("n", "<leader>w", ":w<CR>", { desc = "Save current file" })
 map("n", "<leader>o", ":so<CR>", { desc = "Source current file" })
@@ -26,7 +26,7 @@ map("n", "<C-u>", "<C-u>zz", { desc = "Half page up (centered)" })
 -- Buffers
 map("n", "<leader>bn", ":bnext<CR>", { desc = "Next buffer" })
 map("n", "<leader>bp", ":bprevious<CR>", { desc = "Previous buffer" })
-map("n", "<leader>bc", ":bdelete<CR>", { desc = "Delete current buffer" })
+map("n", "<leader>bd", ":bdelete<CR>", { desc = "Delete current buffer" })
 
 -- Splitting and resizing
 map("n", "<leader>sv", ":vsplit<CR>", { desc = "Split window vertically" })

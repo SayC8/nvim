@@ -20,6 +20,7 @@ require("mason-lspconfig").setup({
 vim.pack.add({
   { src = "https://github.com/stevearc/oil.nvim" },
   { src = "https://github.com/norcalli/nvim-colorizer.lua" },
+  { src = "https://github.com/shaunsingh/nord.nvim" },
 })
 require("colorizer").setup()
 require("oil").setup({
@@ -98,7 +99,7 @@ miniclue.setup({
 
 --- THEME & TRANSPARENCY -------------------------
 --------------------------------------------------
-vim.cmd.colorscheme("miniwinter")
+vim.cmd.colorscheme("nord")
 -- vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
 -- vim.api.nvim_set_hl(0, "NormalNC", { bg = "none" })
 -- vim.api.nvim_set_hl(0, "EndOfBuffer", { bg = "none" })
