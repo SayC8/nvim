@@ -57,36 +57,38 @@ map("n", "J", "mzJ`z", { desc = "Join lines and keep cursor position" })
 
 -- Compilation/Running
 map("n", "<F7>",
-  function()
-    local filename = vim.fn.expand("%")
-    local basename = vim.fn.expand("%:r")
-    local filetype = vim.bo.filetype
-    local cmd = nil
+    function()
+        local filename = vim.fn.expand("%")
+        local basename = vim.fn.expand("%:r")
+        local filetype = vim.bo.filetype
+        local cmd = nil
 
-    if filetype == "lua" then
-      cmd = "term lua " .. filename
-    elseif filetype == "go" then
-      cmd = "term go run"
-    elseif filetype == "c" then
-      local makefile = io.open("Makefile", "r")
-      local buildsh = io.open("build.sh", "r")
-      if makefile then
-        cmd = "term make"
-        makefile:close()
-      elseif buildsh then
-        cmd = "term ./build.sh"
-        buildsh:close()
-      else
-        print("No Makefile or build.sh found!")
-        return
-      end
-    end
+        if filetype == "lua" then
+            cmd = "term lua " .. filename
+        elseif filetype == "go" then
+            cmd = "term go run"
+        elseif filetype == "python" then
+            cmd = "term python " .. filename
+        elseif filetype == "c" then
+            local makefile = io.open("Makefile", "r")
+            local buildsh = io.open("build.sh", "r")
+            if makefile then
+                cmd = "term make"
+                makefile:close()
+            elseif buildsh then
+                cmd = "term ./build.sh"
+                buildsh:close()
+            else
+                print("No Makefile or build.sh found!")
+                return
+            end
+        end
 
-    if cmd then
-      vim.cmd("w|split|resize 12|" .. cmd)
-      vim.cmd("$")
-    else
-      print("No compilation command defined for filetype: '" .. filetype .. "'")
-    end
-  end,
-  { desc = "Compile/Run" })
+        if cmd then
+            vim.cmd("w|split|resize 12|" .. cmd)
+            vim.cmd("$")
+        else
+            print("No compilation command defined for filetype: '" .. filetype .. "'")
+        end
+    end,
+    { desc = "Compile/Run" })

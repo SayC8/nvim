@@ -1,5 +1,9 @@
 {
   "plugins": {
+    "c3.nvim": {
+      "rev": "83e0065",
+      "src": "https://github.com/wstucco/c3.nvim"
+    },
     "mason-lspconfig.nvim": {
       "rev": "b1d9a914b02ba5660f1e272a03314b31d4576fe2",
       "src": "https://github.com/mason-org/mason-lspconfig.nvim"
@@ -23,6 +27,10 @@
     "nvim-lspconfig": {
       "rev": "abf6d190f2c06818489c0bd4b926e7e3a06c5e51",
       "src": "https://github.com/neovim/nvim-lspconfig"
+    },
+    "nvim-treesitter": {
+      "rev": "42fc28ba",
+      "src": "https://github.com/nvim-treesitter/nvim-treesitter"
     },
     "oil.nvim": {
       "rev": "7e1cd7703ff2924d7038476dcbc04b950203b902",
