@@ -10,7 +10,7 @@ map("n", "<leader>o", ":w|so<CR>", { desc = "Source file" })
 map("n", "<leader>e", ":lua MiniFiles.open()<CR>", { desc = "Open MiniFiles" })
 map("n", "<leader>ff", ":Pick files<CR>", { desc = "Pick files" })
 map("n", "<leader>fh", ":Pick help<CR>", { desc = "Pick help" })
-map("n", "<leader>/", ":Pick grep_live<CR>", { desc = "Live grep"})
+map("n", "<leader>/", ":Pick grep_live<CR>", { desc = "Live grep" })
 
 -- Buffers
 map("n", "<leader>bn", ":bnext<CR>", { desc = "Next buffer" })
@@ -22,3 +22,12 @@ map("n", "n", "nzzzv")
 map("n", "N", "Nzzzv")
 map("n", "<C-d>", "<C-d>zz")
 map("n", "<C-u>", "<C-u>zz")
+
+-- Run in terminal
+map("n", "<leader>t", function()
+    local command = vim.fn.input("Command: ")
+    vim.cmd("split")
+    vim.cmd("resize 12")
+    vim.cmd("term " .. command)
+    vim.cmd("$")
+end, { desc = "Run a command in terminal" })

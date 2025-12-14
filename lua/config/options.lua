@@ -7,6 +7,9 @@ o.cursorline = true
 o.signcolumn = "yes"
 o.colorcolumn = "80"
 o.showmode = false
+o.splitbelow = true
+o.splitright = true
+
 
 o.expandtab = true
 o.tabstop = 4
