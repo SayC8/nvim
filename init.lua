@@ -20,8 +20,6 @@ vim.pack.add({
 })
 require("mason").setup({})
 require("mason-lspconfig").setup({})
-vim.keymap.set("n", "<leader>cf", vim.lsp.buf.format, { desc = "Format" })
-vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Code action" })
 
 -- MINI
 vim.pack.add({ "https://github.com/nvim-mini/mini.nvim.git" })
@@ -34,9 +32,9 @@ require("mini.move").setup()
 require("mini.cmdline").setup()
 require("mini.tabline").setup()
 require("mini.statusline").setup()
-require("mini.trailspace").setup()
 require("mini.snippets").setup()
 require("mini.completion").setup()
+require("mini.trailspace").setup()
 
 local miniclue = require('mini.clue')
 miniclue.setup({
