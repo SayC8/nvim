@@ -1,28 +1,30 @@
 require("config.options")
 require("config.keymaps")
 
+-- PACK
+vim.pack.add({
+    { src = "https://github.com/AlexvZyl/nordic.nvim" },
+    { src = "https://github.com/nvim-treesitter/nvim-treesitter.git" },
+    { src = "https://github.com/mason-org/mason.nvim" },
+    { src = "https://github.com/neovim/nvim-lspconfig" },
+    { src = "https://github.com/mason-org/mason-lspconfig.nvim" },
+    { src = "https://github.com/nvim-mini/mini.nvim.git" },
+})
+
 -- COLORSCHEME
-vim.pack.add({ "https://github.com/AlexvZyl/nordic.nvim" })
 vim.cmd("colorscheme nordic")
 
 -- TREESITTER
-vim.pack.add({ "https://github.com/nvim-treesitter/nvim-treesitter.git" })
 require("nvim-treesitter.configs").setup({
     ensure_installed = { "c", "lua", "vim", "vimdoc" },
     auto_install = true,
 })
 
 -- LSP
-vim.pack.add({
-    { src = "https://github.com/mason-org/mason.nvim" },
-    { src = "https://github.com/neovim/nvim-lspconfig" },
-    { src = "https://github.com/mason-org/mason-lspconfig.nvim" },
-})
 require("mason").setup({})
 require("mason-lspconfig").setup({})
 
 -- MINI
-vim.pack.add({ "https://github.com/nvim-mini/mini.nvim.git" })
 require("mini.pairs").setup()
 require("mini.surround").setup()
 require("mini.icons").setup()
