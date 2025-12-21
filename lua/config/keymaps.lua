@@ -2,15 +2,22 @@ vim.g.mapleader = " "
 local map = vim.keymap.set
 
 -- LSP
-vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Code action" })
-vim.keymap.set("n", "<leader>cf", function ()
+function FormatFile()
     vim.lsp.buf.format()
     MiniTrailspace.trim()
     MiniTrailspace.trim_last_lines()
+end
+
+vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Code action" })
+vim.keymap.set("n", "<leader>cf", function()
+    FormatFile()
 end, { desc = "Format" })
 
 -- File management
-map("n", "<leader>w", ":w<CR>", { desc = "Save file" })
+map("n", "<leader>w", function()
+    FormatFile()
+    vim.cmd("update")
+end, { desc = "Save file (and formats)" })
 map("n", "<leader>o", ":w|so<CR>", { desc = "Source file" })
 
 -- File navigation

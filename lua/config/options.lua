@@ -51,7 +51,7 @@ o.backspace = "indent,eol,start"
 o.autochdir = false
 o.path:append("**")
 o.selection = "exclusive"
-o.mouse= "a"
+o.mouse = "a"
 o.clipboard:append("unnamedplus")
 o.modifiable = true
 o.encoding = "UTF-8"
