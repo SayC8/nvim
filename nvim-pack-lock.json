@@ -16,10 +16,6 @@
       "rev": "6bd3a01",
       "src": "https://github.com/nvim-mini/mini.nvim.git"
     },
-    "nord.nvim": {
-      "rev": "80c1e53",
-      "src": "https://github.com/shaunsingh/nord.nvim.git"
-    },
     "nordic.nvim": {
       "rev": "6afe957",
       "src": "https://github.com/AlexvZyl/nordic.nvim"
