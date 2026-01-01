@@ -19,7 +19,7 @@ o.autoindent = true
 o.smartindent = true
 o.wrap = false
 
-o.scrolloff = 10
+o.scrolloff = 5
 o.sidescrolloff = 10
 
 o.ignorecase = true
