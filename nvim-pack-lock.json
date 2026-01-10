@@ -2,7 +2,7 @@
   "plugins": {
     "gruber-darker.nvim": {
       "rev": "98a2e14",
-      "src": "https://github.com/blazkowolf/gruber-darker.nvim.git"
+      "src": "https://github.com/blazkowolf/gruber-darker.nvim"
     },
     "mason-lspconfig.nvim": {
       "rev": "c55bd8a",

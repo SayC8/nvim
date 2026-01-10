@@ -3,28 +3,36 @@ require("config.keymaps")
 
 -- PACK
 vim.pack.add({
-    { src = "https://github.com/AlexvZyl/nordic.nvim" },
+    { src = "https://github.com/blazkowolf/gruber-darker.nvim" },
+    { src = "https://github.com/nvim-mini/mini.nvim.git" },
     { src = "https://github.com/nvim-treesitter/nvim-treesitter.git" },
     { src = "https://github.com/mason-org/mason.nvim" },
     { src = "https://github.com/neovim/nvim-lspconfig" },
     { src = "https://github.com/mason-org/mason-lspconfig.nvim" },
-    { src = "https://github.com/nvim-mini/mini.nvim.git" },
 })
 
 -- COLORSCHEME
-vim.cmd("colorscheme nordic")
-
--- TREESITTER
-require("nvim-treesitter.configs").setup({
-    ensure_installed = { "c", "lua", "vim", "vimdoc" },
-    auto_install = true,
+require("gruber-darker").setup({
+    bold = true,
+    invert = {
+        signs = false,
+        tabline = false,
+        visual = false,
+    },
+    italic = {
+        strings = true,
+        comments = true,
+        operators = false,
+        folds = true,
+    },
+    undercurl = true,
+    underline = true,
 })
-
--- LSP
-require("mason").setup({})
-require("mason-lspconfig").setup({})
+vim.cmd("colorscheme gruber-darker")
 
 -- MINI
+require("mini.git").setup()
+require("mini.diff").setup()
 require("mini.pairs").setup()
 require("mini.surround").setup()
 require("mini.icons").setup()
@@ -45,7 +53,6 @@ require("mini.hipatterns").setup({
         note  = { pattern = 'NOTE', group = 'MiniHipatternsNote' },
     }
 })
-
 
 local miniclue = require('mini.clue')
 miniclue.setup({
@@ -90,4 +97,16 @@ miniclue.setup({
         miniclue.gen_clues.windows(),
         miniclue.gen_clues.z(),
     },
+})
+
+-- TREESITTER
+require("nvim-treesitter.configs").setup({
+    ensure_installed = { "c", "lua", "vim", "vimdoc" },
+    auto_install = true,
+})
+
+-- LSP
+require("mason").setup({})
+require("mason-lspconfig").setup({
+    ensure_installed = { "lua_ls", "intelephense" }
 })

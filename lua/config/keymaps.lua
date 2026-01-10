@@ -15,9 +15,8 @@ end, { desc = "Format" })
 
 -- File management
 map("n", "<leader>w", function()
-    FormatFile()
     vim.cmd("update")
-end, { desc = "Save file (and formats)" })
+end, { desc = "Save file (if changed)" })
 map("n", "<leader>o", ":w|so<CR>", { desc = "Source file" })
 
 -- File navigation
