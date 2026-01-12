@@ -6,7 +6,7 @@ o.relativenumber = true
 o.cursorline = false
 o.signcolumn = "yes"
 o.colorcolumn = "80"
-o.showmode = false
+o.showmode = true
 o.splitbelow = true
 o.splitright = true
 
