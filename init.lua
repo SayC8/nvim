@@ -28,7 +28,7 @@ require("gruber-darker").setup({
     undercurl = true,
     underline = true,
 })
-vim.cmd("colorscheme gruber-darker")
+vim.cmd("colorscheme minicyan")
 
 -- MINI
 require("mini.git").setup()
@@ -41,7 +41,7 @@ require("mini.pick").setup()
 require("mini.move").setup()
 require("mini.tabline").setup()
 require("mini.cmdline").setup()
--- require("mini.statusline").setup()
+require("mini.statusline").setup()
 require("mini.snippets").setup()
 require("mini.completion").setup()
 require("mini.trailspace").setup()

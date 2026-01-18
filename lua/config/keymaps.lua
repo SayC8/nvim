@@ -4,8 +4,8 @@ local map = vim.keymap.set
 -- LSP
 function FormatFile()
     vim.lsp.buf.format()
-    MiniTrailspace.trim()
-    MiniTrailspace.trim_last_lines()
+    -- MiniTrailspace.trim()
+    -- MiniTrailspace.trim_last_lines()
 end
 
 vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Code action" })
