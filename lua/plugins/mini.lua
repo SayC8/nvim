@@ -19,7 +19,7 @@ return {
         vim.keymap.set("n", "<leader>ph", ":Pick help<CR>", { desc = "Search Help" })
         vim.keymap.set("n", "<leader>/", ":Pick grep_live<CR>", { desc = "Live Grep" })
 
-        -- Link Pick selection to theme's highlight
+        -- Pick highlights to DMS theme's highlight
         vim.api.nvim_set_hl(0, "MiniPickSelection", { link = "Statement" })
         vim.api.nvim_set_hl(0, "MiniPickMatchCurrent", { link = "Statusline" })
         vim.api.nvim_set_hl(0, "MiniPickMatchMark", { link = "Statement" })
