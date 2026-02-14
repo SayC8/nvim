@@ -1,7 +1,7 @@
 {
   "base16-nvim": { "branch": "master", "commit": "21f2946e45cb92a336638d68c8de292fdf451d0c" },
   "lazy.nvim": { "branch": "main", "commit": "306a05526ada86a7b30af95c5cc81ffba93fef97" },
-  "license_gen.nvim": { "branch": "master", "commit": "e04d485bf9343cdd4ac2a906a5ca2e884e74f609" },
+  "license_gen.nvim": { "branch": "master", "commit": "1a3d5379ea2c3a80266e4568343926424427f5ad" },
   "mason-lspconfig.nvim": { "branch": "main", "commit": "21c2a84ce368e99b18f52ab348c4c02c32c02fcf" },
   "mason.nvim": { "branch": "main", "commit": "44d1e90e1f66e077268191e3ee9d2ac97cc18e65" },
   "mini.nvim": { "branch": "main", "commit": "8ccd03b844a990cd740638715eb3a474001e51d7" },

@@ -13,6 +13,8 @@ opt.laststatus = 3        -- Global statusline (one bar for all windows)
 opt.showmode = false      -- Don't show mode (statusline handles it)
 opt.pumheight = 10        -- Maximum items in completion popup
 opt.smoothscroll = true   -- Smoothly scroll wrapped lines (v0.10+)
+opt.scrolloff = 8
+opt.sidescrolloff = 12
 opt.winborder = "rounded"
 
 -- Behavior & Performance

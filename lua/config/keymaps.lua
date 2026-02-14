@@ -1,18 +1,19 @@
 ----------------------------------------
 --- KEYMAPS
 ----------------------------------------
-local map = vim.keymap.set
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
-map("n", "<leader>o", ":update<CR>:source<CR>", { desc = "Save and source current file" })
-map("n", "<leader>w", ":write<CR>", { desc = "Write current file" })
+local map = function(mode, keys, func, desc)
+    vim.keymap.set(mode, keys, func, { desc = desc })
+end
 
--- Navigate completion menu with Tab
-map("i", "<Tab>", function()
-    return vim.fn.pumvisible() == 1 and "<C-n>" or "<Tab>"
-end, { expr = true })
+map("n", "<leader>o", ":update<CR>:source<CR>", "Save and source current file")
+map("n", "<leader>w", ":write<CR>", "Write current file")
 
-map("i", "<S-Tab>", function()
-    return vim.fn.pumvisible() == 1 and "<C-p>" or "<S-Tab>"
-end, { expr = true })
+--- Splits/Windows
+map("n", "<C-h>", "<C-w><C-h>", "Focus left split")
+map("n", "<C-j>", "<C-w><C-j>", "Focus bottom split")
+map("n", "<C-k>", "<C-w><C-k>", "Focus top split")
+map("n", "<C-l>", "<C-w><C-l>", "Focus right split")
+map("n", "<leader>q", "<C-w><C-q>", "Quit/Close Split")
