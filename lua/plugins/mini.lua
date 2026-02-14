@@ -19,8 +19,27 @@ return {
         vim.keymap.set("n", "<leader>ph", ":Pick help<CR>", { desc = "Search Help" })
         vim.keymap.set("n", "<leader>/", ":Pick grep_live<CR>", { desc = "Live Grep" })
 
+        -- Link Pick selection to theme's highlight
+        vim.api.nvim_set_hl(0, "MiniPickSelection", { link = "Statement" })
+        vim.api.nvim_set_hl(0, "MiniPickMatchCurrent", { link = "Statusline" })
+        vim.api.nvim_set_hl(0, "MiniPickMatchMark", { link = "Statement" })
+
         require("mini.bufremove").setup()
         vim.keymap.set("n", "<leader>bd", MiniBufremove.delete, { desc = "Delete Buffer" })
+
+        local hipatterns = require('mini.hipatterns')
+        hipatterns.setup({
+            highlighters = {
+                -- Highlight standalone 'FIXME', 'HACK', 'TODO', 'NOTE'
+                fixme     = { pattern = '%f[%w]()FIXME()%f[%W]', group = 'MiniHipatternsFixme' },
+                hack      = { pattern = '%f[%w]()HACK()%f[%W]', group = 'MiniHipatternsHack' },
+                todo      = { pattern = '%f[%w]()TODO()%f[%W]', group = 'MiniHipatternsTodo' },
+                note      = { pattern = '%f[%w]()NOTE()%f[%W]', group = 'MiniHipatternsNote' },
+
+                -- Highlight hex color strings (`#rrggbb`) using that color
+                hex_color = hipatterns.gen_highlighter.hex_color(),
+            },
+        })
 
         local miniclue = require('mini.clue')
         miniclue.setup({

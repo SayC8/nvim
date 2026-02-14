@@ -13,6 +13,7 @@ opt.laststatus = 3        -- Global statusline (one bar for all windows)
 opt.showmode = false      -- Don't show mode (statusline handles it)
 opt.pumheight = 10        -- Maximum items in completion popup
 opt.smoothscroll = true   -- Smoothly scroll wrapped lines (v0.10+)
+opt.winborder = "rounded"
 
 -- Behavior & Performance
 opt.updatetime = 300          -- Faster completion and diagnostic updates
@@ -20,6 +21,7 @@ opt.timeoutlen = 300          -- Mapping timeout (crucial for mini.clue)
 opt.clipboard = "unnamedplus" -- Sync with system clipboard
 opt.mouse = "a"               -- Enable mouse support
 opt.undofile = true           -- Persistent undo (survives restarts)
+opt.swapfile = false          -- This is just annoying
 opt.confirm = true            -- Confirm before quitting unsaved changes
 
 -- Tabs & Indentation
