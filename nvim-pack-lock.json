@@ -1,0 +1,24 @@
+{
+  "plugins": {
+    "base16-nvim": {
+      "rev": "21f2946e45cb92a336638d68c8de292fdf451d0c",
+      "src": "https://github.com/RRethy/base16-nvim"
+    },
+    "license_gen.nvim": {
+      "rev": "796751073b7579990d919a9aea331123f7c94993",
+      "src": "https://github.com/SayC8/license_gen.nvim"
+    },
+    "mason.nvim": {
+      "rev": "44d1e90e1f66e077268191e3ee9d2ac97cc18e65",
+      "src": "https://github.com/mason-org/mason.nvim"
+    },
+    "mini.nvim": {
+      "rev": "8ccd03b844a990cd740638715eb3a474001e51d7",
+      "src": "https://github.com/nvim-mini/mini.nvim"
+    },
+    "nvim-lspconfig": {
+      "rev": "44acfe887d4056f704ccc4f17513ed41c9e2b2e6",
+      "src": "https://github.com/neovim/nvim-lspconfig"
+    }
+  }
+}
