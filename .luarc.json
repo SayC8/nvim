@@ -3,6 +3,7 @@
         "vim",
         "MiniDiff",
         "MiniFiles",
-        "MiniBufremove"
+        "MiniBufremove",
+        "MiniJump2d"
     ]
 }

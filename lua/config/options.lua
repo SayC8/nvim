@@ -17,7 +17,6 @@ opt.smoothscroll = true   -- Smoothly scroll wrapped lines (v0.10+)
 opt.scrolloff = 8
 opt.sidescrolloff = 12
 opt.winborder = "rounded"
-opt.hlsearch = false
 
 -- Behavior & Performance
 opt.updatetime = 300          -- Faster completion and diagnostic updates
@@ -47,7 +46,7 @@ opt.smartcase = true       -- Case-sensitive if search contains uppercase
 opt.ignorecase = true      -- Ignore case in search patterns
 opt.incsearch = true       -- Show search results while typing
 opt.inccommand = "nosplit" -- Live preview for :substitute in the buffer
-opt.hlsearch = true        -- Highlight all matches on previous search
+opt.hlsearch = false        -- Highlight all matches on previous search
 
 -- Completion (Omnifunc/Native)
 -- menuone: popup even for one match | noselect: don't select | noinsert: don't change text

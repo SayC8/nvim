@@ -7,8 +7,10 @@ return {
     require("mini.tabline").setup()
     require("mini.statusline").setup()
     require("mini.cmdline").setup()
-    require("mini.jump2d").setup()
     require("mini.surround").setup()
+
+    require("mini.jump2d").setup()
+    -- vim.keymap.set({ "n", "v" }, "<leader><leader>", MiniJump2d.start, { desc = "MiniJump2d" })
 
     require("mini.git").setup()
     require("mini.diff").setup()
