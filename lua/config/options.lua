@@ -29,9 +29,9 @@ opt.confirm = true            -- Confirm before quitting unsaved changes
 
 -- Tabs & Indentation
 opt.expandtab = true   -- Use spaces instead of tabs
-opt.shiftwidth = 4     -- Size of an indent
-opt.tabstop = 4        -- Number of spaces tabs count for
-opt.softtabstop = 4
+opt.shiftwidth = 2     -- Size of an indent
+opt.tabstop = 2        -- Number of spaces tabs count for
+opt.softtabstop = 2
 opt.shiftround = true  -- Round indent to multiple of shiftwidth
 opt.smartindent = true -- Insert indents automatically
 opt.wrap = false       -- Disable line wrapping
@@ -39,7 +39,7 @@ opt.wrap = false       -- Disable line wrapping
 -- Windows & Splitting
 opt.splitright = true -- Put vertical splits to the right
 opt.splitbelow = true -- Put horizontal splits to the bottom
-opt.winminwidth = 5   -- Prevent tiny, unusable splits
+opt.winminwidth = 6   -- Prevent tiny, unusable splits
 
 -- Search
 opt.smartcase = true       -- Case-sensitive if search contains uppercase
@@ -61,13 +61,13 @@ opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
 ----------------------------------------
 -- This configures how LSP info looks globally
 vim.diagnostic.config({
-    virtual_text = { prefix = '●' }, -- Small dots for errors in-line
-    update_in_insert = false, -- Don't show errors while typing
-    severity_sort = true, -- Sort by severity so Errors show first
+  virtual_text = { prefix = '●' }, -- Small dots for errors in-line
+  update_in_insert = false, -- Don't show errors while typing
+  severity_sort = true, -- Sort by severity so Errors show first
 })
 
 -- Enable Inlay Hints by default (v0.12 native feature)
 -- This shows type info/parameter names in the buffer
 if vim.lsp.inlay_hint then
-    vim.lsp.inlay_hint.enable(false)
+  vim.lsp.inlay_hint.enable(false)
 end

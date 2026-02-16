@@ -5,7 +5,7 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
 local map = function(mode, keys, func, desc)
-    vim.keymap.set(mode, keys, func, { desc = desc })
+  vim.keymap.set(mode, keys, func, { desc = desc })
 end
 
 map("n", "<leader>o", ":update<CR>:source<CR>", "Save and source current file")
