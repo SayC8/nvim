@@ -21,7 +21,7 @@ opt.winborder = "rounded"
 -- Behavior & Performance
 opt.updatetime = 300          -- Faster completion and diagnostic updates
 opt.timeoutlen = 300          -- Mapping timeout (crucial for mini.clue)
-opt.clipboard = "unnamedplus" -- Sync with system clipboard
+-- opt.clipboard = "unnamedplus" -- Sync with system clipboard
 opt.mouse = "a"               -- Enable mouse support
 opt.undofile = true           -- Persistent undo (survives restarts)
 opt.swapfile = false          -- This is just annoying

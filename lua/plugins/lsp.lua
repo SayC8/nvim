@@ -7,14 +7,12 @@ return {
     },
     config = function()
       require("mason-lspconfig").setup({
-        ensure_installed = { "lua_ls", "clangd", "pyright", "ols", "intelephense" },
+        ensure_installed = { "intelephense", "bashls", "pyright" },
       })
 
       vim.lsp.config("lua_ls", {
         settings = { Lua = { diagnostics = { globals = { "vim" } } } },
       })
-
-      vim.g.odinfmt_config_path = vim.fn.expand('~/.config/odinfmt.json')
 
       vim.api.nvim_create_autocmd("LspAttach", {
         callback = function(ev)
