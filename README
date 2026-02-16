@@ -1,0 +1,2 @@
+Termux branch removes some stuff so I can code on mobile.
+Mainly broken lsp since clangd, lua_ls and some others are not supported.
