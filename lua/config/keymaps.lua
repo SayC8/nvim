@@ -11,6 +11,8 @@ end
 map("n", "<leader>o", ":update<CR>:source<CR>", "Save and source current file")
 map("n", "<leader>w", ":write<CR>", "Write current file")
 
+map("n", "<leader>nh", ":nohlsearch<CR>", "Remove search highlight")
+
 --- Splits/Windows
 map("n", "<C-h>", "<C-w><C-h>", "Focus left split")
 map("n", "<C-j>", "<C-w><C-j>", "Focus bottom split")
