@@ -17,6 +17,7 @@ opt.smoothscroll = true   -- Smoothly scroll wrapped lines (v0.10+)
 opt.scrolloff = 8
 opt.sidescrolloff = 12
 opt.winborder = "rounded"
+opt.hlsearch = false
 
 -- Behavior & Performance
 opt.updatetime = 300          -- Faster completion and diagnostic updates
