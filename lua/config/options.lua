@@ -29,9 +29,9 @@ opt.confirm = true            -- Confirm before quitting unsaved changes
 
 -- Tabs & Indentation
 opt.expandtab = true   -- Use spaces instead of tabs
-opt.shiftwidth = 2     -- Size of an indent
-opt.tabstop = 2        -- Number of spaces tabs count for
-opt.softtabstop = 2
+opt.shiftwidth = 4     -- Size of an indent
+opt.tabstop = 4        -- Number of spaces tabs count for
+opt.softtabstop = 4
 opt.shiftround = true  -- Round indent to multiple of shiftwidth
 opt.smartindent = true -- Insert indents automatically
 opt.wrap = false       -- Disable line wrapping
