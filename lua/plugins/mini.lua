@@ -22,6 +22,7 @@ return {
     require("mini.pick").setup()
     vim.keymap.set("n", "<leader>ff", ":Pick files<CR>", { desc = "Search Files" })
     vim.keymap.set("n", "<leader>fh", ":Pick help<CR>", { desc = "Search Help" })
+    vim.keymap.set("n", "<leader>fb", ":Pick buffers<CR>", { desc = "Search Buffers" })
     vim.keymap.set("n", "<leader>/", ":Pick grep_live<CR>", { desc = "Live Grep" })
 
     -- Pick highlights to DMS theme's highlight
