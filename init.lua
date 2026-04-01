@@ -167,7 +167,7 @@ miniclue.setup({
 local lsp_servers = {
     "lua_ls",
     "clangd",
-    "based_pyright",
+    "basedpyright",
     "ols",
     "intelephense",
 }
@@ -181,3 +181,8 @@ vim.lsp.config("lua_ls", {
 
 vim.keymap.set("n", "<leader>cf", vim.lsp.buf.format, { desc = "Code Format" })
 vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Code Actions" })
+
+-- Highlight on yank
+vim.api.nvim_create_autocmd('TextYankPost', {
+    callback = function() vim.highlight.on_yank() end,
+})
