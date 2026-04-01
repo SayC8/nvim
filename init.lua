@@ -61,11 +61,13 @@ vim.keymap.set("n", "<leader>o", ":update<CR>:source<CR>", { desc = "Source file
 --- PLUGINS
 ----------------------------------------
 vim.pack.add {
+    "https://github.com/mason-org/mason.nvim.git",
     "https://github.com/neovim/nvim-lspconfig",
     "https://github.com/nvim-mini/mini.nvim.git",
     "https://github.com/SayC8/license_gen.nvim",
 }
 
+require("mason").setup()
 require("license_gen").setup()
 
 require("mini.icons").setup()
