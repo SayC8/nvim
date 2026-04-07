@@ -16,7 +16,7 @@ opt.cmdheight = 1
 opt.smoothscroll = true
 opt.scrolloff = 8
 opt.sidescrolloff = 12
-opt.winborder = "single"
+opt.winborder = "double"
 
 -- Behaviour and Performance
 opt.updatetime = 300
