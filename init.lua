@@ -16,7 +16,7 @@ opt.cmdheight = 1
 opt.smoothscroll = true
 opt.scrolloff = 8
 opt.sidescrolloff = 12
-opt.winborder = "double"
+opt.winborder = "single"
 
 -- Behaviour and Performance
 opt.updatetime = 300
@@ -169,8 +169,6 @@ local lsp_servers = {
     "clangd",
     "basedpyright",
     "ols",
-    "intelephense",
-    "perlnavigator"
 }
 for _, server in pairs(lsp_servers) do
     vim.lsp.enable(server)
@@ -183,7 +181,7 @@ vim.lsp.config("lua_ls", {
 -- Fix mismatched filetypes
 vim.filetype.add({
     extension = {
-        pl = "perl"
+        -- pl = "perl"
     },
 })
 
