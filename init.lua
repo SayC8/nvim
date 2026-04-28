@@ -170,6 +170,7 @@ local lsp_servers = {
     "basedpyright",
     "ols",
     "intelephense",
+    "perlnavigator"
 }
 for _, server in pairs(lsp_servers) do
     vim.lsp.enable(server)
@@ -177,6 +178,13 @@ end
 
 vim.lsp.config("lua_ls", {
     settings = { Lua = { diagnostics = { globals = { "vim" } } } }
+})
+
+-- Fix mismatched filetypes
+vim.filetype.add({
+    extension = {
+        pl = "perl"
+    },
 })
 
 vim.keymap.set("n", "<leader>cf", vim.lsp.buf.format, { desc = "Code Format" })
