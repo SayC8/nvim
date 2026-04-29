@@ -13,7 +13,7 @@ opt.showmode = false
 opt.pumheight = 10
 opt.cmdheight = 1
 opt.smoothscroll = true
-opt.scrolloff = 8
+opt.scrolloff = 10
 opt.sidescrolloff = 12
 opt.winborder = "single"
 
@@ -50,11 +50,13 @@ opt.hlsearch = false
 ----------------------------------------
 --- GENERAL KEYMAPS
 ----------------------------------------
+local map = vim.keymap.set
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
-vim.keymap.set("n", "<leader>w", ":write<CR>", { desc = "Save file" })
-vim.keymap.set("n", "<leader>o", ":update<CR>:source<CR>", { desc = "Source file" })
+map("n", "<leader>w", ":write<CR>", { desc = "Save file" })
+map("n", "<leader>o", ":update<CR>:source<CR>", { desc = "Source file" })
+map("n", "<leader>q", ":quit<CR>", { desc = "Close" })
 
 ----------------------------------------
 --- PLUGINS
