@@ -1,4 +1,3 @@
-vim.cmd.colorscheme("retrobox")
 ----------------------------------------
 --- OPTIONS
 ----------------------------------------
@@ -192,3 +191,6 @@ vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Code Action
 vim.api.nvim_create_autocmd('TextYankPost', {
     callback = function() vim.highlight.on_yank() end,
 })
+
+-- Colorscheme
+vim.cmd.colorscheme("minicyan")
