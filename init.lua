@@ -66,12 +66,14 @@ vim.pack.add {
     "https://github.com/neovim/nvim-lspconfig",
     "https://github.com/nvim-mini/mini.nvim.git",
     "https://github.com/SayC8/license_gen.nvim",
-    "https://github.com/ribru17/bamboo.nvim.git"
+    "https://github.com/ribru17/bamboo.nvim.git",
+    "https://github.com/rebelot/kanagawa.nvim",
 }
 
 -- Colorscheme
 require("bamboo").setup()
-vim.cmd.colorscheme("bamboo")
+require("kanagawa").setup()
+vim.cmd.colorscheme("bamboo-vulgaris")
 
 require("mason").setup()
 require("license_gen").setup()
@@ -198,4 +200,3 @@ vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Code Action
 vim.api.nvim_create_autocmd('TextYankPost', {
     callback = function() vim.highlight.on_yank() end,
 })
-
