@@ -58,7 +58,6 @@ vim.g.maplocalleader = " "
 map("n", "<leader>w", ":write<CR>", { desc = "Save file" })
 map("n", "<leader>o", ":update<CR>:source<CR>", { desc = "Source file" })
 map("n", "<leader>q", ":quit<CR>", { desc = "Close" })
-
 map("n", "<F5>", ":update<CR>:make<CR>", { desc = "Run Makefile" })
 
 ----------------------------------------
@@ -69,18 +68,19 @@ vim.pack.add {
     "https://github.com/neovim/nvim-lspconfig",
     "https://github.com/nvim-mini/mini.nvim.git",
     "https://github.com/SayC8/license_gen.nvim",
-    "https://github.com/ribru17/bamboo.nvim.git",
-    "https://github.com/rebelot/kanagawa.nvim",
 }
-
--- Colorscheme
-require("bamboo").setup()
-require("kanagawa").setup()
-vim.cmd.colorscheme("kanagawa-dragon")
 
 require("mason").setup()
 require("license_gen").setup()
 
+-- Colorschemes
+vim.cmd.colorscheme("catppuccin")
+
+-- Matches terminal bg to nvim bg
+local MiniMisc = require("mini.misc")
+MiniMisc.setup_termbg_sync()
+
+-- Mini.Nvim
 require("mini.icons").setup()
 require("mini.pairs").setup()
 require("mini.move").setup()
@@ -90,6 +90,7 @@ require("mini.cmdline").setup()
 require("mini.surround").setup()
 require("mini.git").setup()
 require("mini.diff").setup()
+require("mini.extra").setup()
 
 require("mini.files").setup()
 vim.keymap.set("n", "<leader>e", MiniFiles.open, { desc = "Files" })
@@ -98,6 +99,7 @@ require("mini.pick").setup()
 vim.keymap.set("n", "<leader>ff", ":Pick files<CR>", { desc = "Search files" })
 vim.keymap.set("n", "<leader>fh", ":Pick help<CR>", { desc = "Search help" })
 vim.keymap.set("n", "<leader>fb", ":Pick buffers<CR>", { desc = "Search buffers" })
+vim.keymap.set("n", "<leader>fc", ":Pick colorschemes<CR>", { desc = "Search colorschemes" })
 vim.keymap.set("n", "<leader>/", ":Pick grep_live<CR>", { desc = "Live Grep" })
 
 require("mini.bufremove").setup()
@@ -179,6 +181,7 @@ local lsp_servers = {
     "lua_ls",
     "clangd",
     "basedpyright",
+    "ruff",
     "ols",
 }
 for _, server in pairs(lsp_servers) do
