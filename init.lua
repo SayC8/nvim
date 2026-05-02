@@ -16,6 +16,7 @@ opt.smoothscroll = true
 opt.scrolloff = 10
 opt.sidescrolloff = 12
 opt.winborder = "single"
+opt.colorcolumn = "100"
 
 -- Behaviour and Performance
 opt.updatetime = 300
@@ -58,6 +59,8 @@ map("n", "<leader>w", ":write<CR>", { desc = "Save file" })
 map("n", "<leader>o", ":update<CR>:source<CR>", { desc = "Source file" })
 map("n", "<leader>q", ":quit<CR>", { desc = "Close" })
 
+map("n", "<F5>", ":update<CR>:make<CR>", { desc = "Run Makefile" })
+
 ----------------------------------------
 --- PLUGINS
 ----------------------------------------
@@ -73,7 +76,7 @@ vim.pack.add {
 -- Colorscheme
 require("bamboo").setup()
 require("kanagawa").setup()
-vim.cmd.colorscheme("bamboo-vulgaris")
+vim.cmd.colorscheme("kanagawa-dragon")
 
 require("mason").setup()
 require("license_gen").setup()
