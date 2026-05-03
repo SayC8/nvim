@@ -1,3 +1,4 @@
+---@diagnostic disable: undefined-global
 ----------------------------------------
 --- OPTIONS
 ----------------------------------------
@@ -63,24 +64,57 @@ map("n", "<F5>", ":update<CR>:make<CR>", { desc = "Run Makefile" })
 ----------------------------------------
 --- PLUGINS
 ----------------------------------------
-vim.pack.add {
-    "https://github.com/mason-org/mason.nvim.git",
-    "https://github.com/neovim/nvim-lspconfig",
+local plugin_list = {
+    "https://github.com/sainnhe/everforest.git",
     "https://github.com/nvim-mini/mini.nvim.git",
-    "https://github.com/SayC8/license_gen.nvim",
+    "https://github.com/mason-org/mason.nvim.git",
+    "https://github.com/neovim/nvim-lspconfig.git",
+    "https://github.com/SayC8/license_gen.nvim.git",
 }
 
-require("mason").setup()
+--- AUTOMATIC PLUGIN CLEANUP
+-- Remove from list above and restart neovim, make sure any
+-- require(<plugin>).setup() etc. is also removed from config
+
+-- 1. Create lookup table of desired directory names
+local desired_plugins = {}
+
+for _, url in ipairs(plugin_list) do
+    -- Extract the repository name (e.g., 'mini.nvim' from '.../mini.nvim.git')
+    local name = url:match("([^/]+)$"):gsub("%.git$", "")
+    desired_plugins[name] = true
+end
+
+-- 2. Add current plugins
+for _, plugin in ipairs(plugin_list) do
+    vim.pack.add { plugin }
+end
+
+-- 3. Cleanup logic
+local pack_path = vim.fn.stdpath('data') .. '/site/pack/core/opt'
+
+if vim.fn.isdirectory(pack_path) == 1 then
+    local installed_plugins = vim.fn.readdir(pack_path)
+    for _, installed_name in ipairs(installed_plugins) do
+        -- If an installed directory isn't in our desired list, delete it
+        if not desired_plugins[installed_name] then
+            print("Removing plugin: " .. installed_name)
+            vim.pack.del { installed_name }
+        end
+    end
+end
+
+-- Colorscheme
+vim.g.everforest_background = 'hard'
+vim.cmd.colorscheme("everforest")
+
+-- License Generator
 require("license_gen").setup()
 
--- Colorschemes
-vim.cmd.colorscheme("catppuccin")
-
--- Matches terminal bg to nvim bg
+-- Mini
 local MiniMisc = require("mini.misc")
-MiniMisc.setup_termbg_sync()
+MiniMisc.setup_termbg_sync() -- Matches terminal bg to nvim bg
 
--- Mini.Nvim
 require("mini.icons").setup()
 require("mini.pairs").setup()
 require("mini.move").setup()
@@ -174,9 +208,9 @@ miniclue.setup({
     },
 })
 
-----------------------------------------
 --- LSP
-----------------------------------------
+require("mason").setup()
+
 local lsp_servers = {
     "lua_ls",
     "clangd",
@@ -202,6 +236,9 @@ vim.filetype.add({
 vim.keymap.set("n", "<leader>cf", vim.lsp.buf.format, { desc = "Code Format" })
 vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Code Actions" })
 
+--------------------------------------------------
+--- EXTRAS
+--------------------------------------------------
 -- Highlight on yank
 vim.api.nvim_create_autocmd('TextYankPost', {
     callback = function() vim.highlight.on_yank() end,
