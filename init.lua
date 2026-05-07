@@ -212,11 +212,15 @@ miniclue.setup({
 require("mason").setup()
 
 local lsp_servers = {
+    "intelephense",
     "lua_ls",
     "clangd",
     "basedpyright",
     "ruff",
     "ols",
+    "superhtml",
+    "ts_ls",
+    "cssls",
 }
 for _, server in pairs(lsp_servers) do
     vim.lsp.enable(server)
