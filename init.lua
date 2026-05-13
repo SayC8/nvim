@@ -212,15 +212,16 @@ miniclue.setup({
 require("mason").setup()
 
 local lsp_servers = {
-    "intelephense",
     "lua_ls",
     "clangd",
     "basedpyright",
     "ruff",
     "ols",
+    "intelephense",
     "superhtml",
     "ts_ls",
     "cssls",
+    "perlnavigator",
 }
 for _, server in pairs(lsp_servers) do
     vim.lsp.enable(server)
@@ -233,7 +234,7 @@ vim.lsp.config("lua_ls", {
 -- Fix mismatched filetypes
 vim.filetype.add({
     extension = {
-        -- pl = "perl"
+        pl = "perl"
     },
 })
 
