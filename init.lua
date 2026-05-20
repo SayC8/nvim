@@ -65,7 +65,6 @@ map("n", "<F5>", ":update<CR>:make<CR>", { desc = "Run Makefile" })
 --- PLUGINS
 ----------------------------------------
 local plugin_list = {
-    "https://github.com/sainnhe/everforest.git",
     "https://github.com/nvim-mini/mini.nvim.git",
     "https://github.com/mason-org/mason.nvim.git",
     "https://github.com/neovim/nvim-lspconfig.git",
@@ -105,8 +104,7 @@ if vim.fn.isdirectory(pack_path) == 1 then
 end
 
 -- Colorscheme
-vim.g.everforest_background = 'hard'
-vim.cmd.colorscheme("everforest")
+vim.cmd.colorscheme("catppuccin")
 
 -- License Generator
 require("license_gen").setup()
@@ -213,6 +211,7 @@ require("mason").setup()
 
 local lsp_servers = {
     "lua_ls",
+    "gopls",
     "clangd",
     "basedpyright",
     "ruff",
