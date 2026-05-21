@@ -59,7 +59,7 @@ vim.g.maplocalleader = " "
 map("n", "<leader>w", ":write<CR>", { desc = "Save file" })
 map("n", "<leader>o", ":update<CR>:source<CR>", { desc = "Source file" })
 map("n", "<leader>q", ":quit<CR>", { desc = "Close" })
-map("n", "<F5>", ":update<CR>:make<CR>", { desc = "Run Makefile" })
+map("n", "<F5>", ":update<CR>:make -B<CR>", { desc = "Run Makefile" })
 
 ----------------------------------------
 --- PLUGINS
