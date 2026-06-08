@@ -210,9 +210,13 @@ miniclue.setup({
 -- Markview
 require("markview").setup({
     preview = {
+        enable = false,
         icon_provider = "mini",
     }
 })
+
+vim.keymap.set("n", "<leader>mp", ":Markview toggle<CR>", { desc = "Toggle Preview" })
+vim.keymap.set("n", "<leader>ms", ":Markview splitToggle<CR>", { desc = "Toggle Split" })
 
 --- LSP
 require("mason").setup()
