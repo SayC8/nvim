@@ -59,7 +59,7 @@ vim.g.maplocalleader = " "
 map("n", "<leader>w", ":write<CR>", { desc = "Save file" })
 map("n", "<leader>o", ":update<CR>:source<CR>", { desc = "Source file" })
 map("n", "<leader>q", ":quit<CR>", { desc = "Close" })
-map("n", "<F5>", ":update<CR>:make -B<CR>", { desc = "Run Makefile" })
+map("n", "<F5>", ":update<CR>:term make -B<CR>", { desc = "Run Makefile" })
 
 ----------------------------------------
 --- PLUGINS
@@ -69,6 +69,7 @@ local plugin_list = {
     "https://github.com/mason-org/mason.nvim.git",
     "https://github.com/neovim/nvim-lspconfig.git",
     "https://github.com/SayC8/license_gen.nvim.git",
+    "https://github.com/OXY2DEV/markview.nvim",
 }
 
 --- AUTOMATIC PLUGIN CLEANUP
@@ -204,6 +205,13 @@ miniclue.setup({
         miniclue.gen_clues.windows(),
         miniclue.gen_clues.z(),
     },
+})
+
+-- Markview
+require("markview").setup({
+    preview = {
+        icon_provider = "mini",
+    }
 })
 
 --- LSP
