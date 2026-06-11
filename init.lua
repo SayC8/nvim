@@ -105,7 +105,7 @@ if vim.fn.isdirectory(pack_path) == 1 then
 end
 
 -- Colorscheme
-vim.cmd.colorscheme("catppuccin")
+vim.cmd.colorscheme("miniwinter")
 
 -- License Generator
 require("license_gen").setup()
@@ -245,7 +245,7 @@ vim.lsp.config("lua_ls", {
 -- Fix mismatched filetypes
 vim.filetype.add({
     extension = {
-        pl = "perl"
+        pl = "perl",
     },
 })
 
