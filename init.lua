@@ -56,10 +56,13 @@ local map = vim.keymap.set
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
-map("n", "<leader>w", ":write<CR>", { desc = "Save file" })
-map("n", "<leader>o", ":update<CR>:source<CR>", { desc = "Source file" })
-map("n", "<leader>q", ":quit<CR>", { desc = "Close" })
-map("n", "<F5>", ":update<CR>:term make -B<CR>", { desc = "Run Makefile" })
+map("n", "<leader>w", "<CMD>update<CR>", { desc = "Save file" })
+map("n", "<leader>o", "<CMD>update<CR><CMD>source<CR>", { desc = "Source file" })
+map("n", "<leader>q", "<CMD>quit<CR>", { desc = "Close" })
+map("n", "<F5>", "<CMD>update<CR><CMD>term make -B<CR>", { desc = "Run Makefile" })
+
+-- map("n", "<leader>v", "<CMD>e $MYVIMRC<CR>", { desc = "nvim config" })
+-- map("n", "<leader>z", "<CMD>e ~/.zshrc<CR>", { desc = "zsh config" })
 
 ----------------------------------------
 --- PLUGINS
@@ -104,13 +107,13 @@ if vim.fn.isdirectory(pack_path) == 1 then
     end
 end
 
--- Colorscheme
+-- COLORSCHEME
 vim.cmd.colorscheme("miniwinter")
 
--- License Generator
+-- LICENSE GENERATOR
 require("license_gen").setup()
 
--- Mini
+-- MINI
 local MiniMisc = require("mini.misc")
 MiniMisc.setup_termbg_sync() -- Matches terminal bg to nvim bg
 
@@ -233,6 +236,7 @@ local lsp_servers = {
     "ts_ls",
     "cssls",
     "perlnavigator",
+    "asm_lsp"
 }
 for _, server in pairs(lsp_servers) do
     vim.lsp.enable(server)
@@ -249,7 +253,13 @@ vim.filetype.add({
     },
 })
 
-vim.keymap.set("n", "<leader>cf", vim.lsp.buf.format, { desc = "Code Format" })
+MiniTrailSpace = require("mini.trailspace")
+vim.keymap.set("n", "<leader>cf", function()
+    if not vim.lsp.buf.format() then
+        MiniTrailSpace.trim()
+        MiniTrailSpace.trim_last_lines()
+    end
+end, { desc = "Format" })
 vim.keymap.set("n", "<leader>ca", vim.lsp.buf.code_action, { desc = "Code Actions" })
 
 --------------------------------------------------
