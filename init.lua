@@ -61,7 +61,7 @@ map("n", "<leader>o", "<CMD>update<CR><CMD>source<CR>", { desc = "Source file" }
 map("n", "<leader>q", "<CMD>quit<CR>", { desc = "Close" })
 map("n", "<F5>", "<CMD>update<CR><CMD>term make -B<CR>", { desc = "Run Makefile" })
 
--- map("n", "<leader>v", "<CMD>e $MYVIMRC<CR>", { desc = "nvim config" })
+map("n", "<leader>v", "<CMD>e $MYVIMRC<CR>", { desc = "nvim config" })
 -- map("n", "<leader>z", "<CMD>e ~/.zshrc<CR>", { desc = "zsh config" })
 
 ----------------------------------------
