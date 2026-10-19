@@ -22,12 +22,21 @@ require("mini.move").setup()
 require("mini.git").setup()
 require("mini.diff").setup()
 
+require("mini.completion").setup()
+require("mini.snippets").setup()
+
 local MiniFiles = require("mini.files")
 MiniFiles.setup()
 vim.keymap.set("n", "-", MiniFiles.open)
 
-local MiniNotify = require("mini.notify")
-MiniNotify.setup()
+-- local MiniNotify = require("mini.notify")
+-- MiniNotify.setup({
+--     content = {
+--         format = function(notif)
+--             return notif.msg
+--         end
+--     }
+-- })
 
 local MiniTrailspace = require("mini.trailspace")
 MiniTrailspace.setup()
@@ -54,7 +63,7 @@ vim.keymap.set("n", "<leader>fb", MiniPick.builtin.buffers)
 vim.keymap.set("n", "<leader>/", MiniPick.builtin.grep_live)
 
 -- LSP
-local servers = { "lua_ls", "basedpyright", "clangd", "ols" }
+local servers = { "lua_ls", "clangd", "ols", "ts_ls" }
 
 require("mason").setup()
 require("mason-lspconfig").setup({
@@ -85,4 +94,22 @@ vim.api.nvim_create_autocmd("LspAttach", {
     end,
 })
 
-vim.lsp.config.lua_ls = { settings = { Lua = { diagnostics = { globals = { "vim" } } } } }
+-- Extend or define the configuration for lua_ls
+vim.lsp.config('lua_ls', {
+    settings = {
+        Lua = {
+            runtime = {
+                version = 'LuaJIT',
+            },
+            diagnostics = {
+                globals = { 'vim' },
+            },
+            workspace = {
+                checkThirdParty = false,
+                library = {
+                    vim.env.VIMRUNTIME,
+                },
+            },
+        },
+    },
+})

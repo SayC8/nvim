@@ -6,7 +6,7 @@ vim.keymap.set("n", "<leader>re", "<cmd>restart<cr>")
 vim.keymap.set("n", "<leader>q", "<cmd>quit<cr>")
 
 vim.keymap.set("i", "<C-c>", "<Esc>")
-vim.keymap.set("n", "<C-c>", ":nohl<cr>")
+vim.keymap.set("n", "<C-c>", ":nohl<cr>", { silent = true })
 
 vim.keymap.set("n", "J", "mzJ`z")
 
