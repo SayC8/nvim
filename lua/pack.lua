@@ -6,6 +6,7 @@ vim.pack.add({
     { src = "https://github.com/neovim/nvim-lspconfig" },
     { src = "https://github.com/mason-org/mason.nvim" },
     { src = "https://github.com/mason-org/mason-lspconfig.nvim" },
+    { src = "https://github.com/nvim-treesitter/nvim-treesitter", branch = "main" },
 
     -- MINI
     { src = "https://github.com/nvim-mini/mini.nvim" },
@@ -28,15 +29,6 @@ require("mini.snippets").setup()
 local MiniFiles = require("mini.files")
 MiniFiles.setup()
 vim.keymap.set("n", "-", MiniFiles.open)
-
--- local MiniNotify = require("mini.notify")
--- MiniNotify.setup({
---     content = {
---         format = function(notif)
---             return notif.msg
---         end
---     }
--- })
 
 local MiniTrailspace = require("mini.trailspace")
 MiniTrailspace.setup()
@@ -63,7 +55,7 @@ vim.keymap.set("n", "<leader>fb", MiniPick.builtin.buffers)
 vim.keymap.set("n", "<leader>/", MiniPick.builtin.grep_live)
 
 -- LSP
-local servers = { "lua_ls", "clangd", "ols", "ts_ls" }
+local servers = { "lua_ls", "clangd", "ols", "ts_ls", "bashls" }
 
 require("mason").setup()
 require("mason-lspconfig").setup({
@@ -113,3 +105,5 @@ vim.lsp.config('lua_ls', {
         },
     },
 })
+
+require("treesitter")
