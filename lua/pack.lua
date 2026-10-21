@@ -34,7 +34,7 @@ require("mini.snippets").setup()
 
 local MiniFiles = require("mini.files")
 MiniFiles.setup()
-vim.keymap.set("n", "-", MiniFiles.open)
+vim.keymap.set("n", "<leader>e", MiniFiles.open)
 
 local MiniTrailspace = require("mini.trailspace")
 MiniTrailspace.setup()

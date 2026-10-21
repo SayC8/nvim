@@ -17,7 +17,8 @@ vim.opt.cursorline = true
 vim.opt.showmode = false
 vim.opt.laststatus = 3
 vim.opt.pumheight = 8
-vim.opt.winborder = "bold"
+vim.opt.winborder = "single"
+vim.opt.hlsearch = false
 
 -- Searching & Replace
 vim.opt.ignorecase = true

@@ -6,7 +6,7 @@ require("keymaps")
 require("pack")
 
 pcall(vim.cmd.colorscheme, "kanagawa-dragon")
--- pcall(vim.cmd.colorscheme, "catppuccin")
+-- pcall(vim.cmd.colorscheme, "lunaperche")
 
 -- Sync terminal bg with colorscheme to avoid mistmatch border
 local group = vim.api.nvim_create_augroup("TerminalBgSync", { clear = true })

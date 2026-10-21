@@ -57,7 +57,10 @@ local function emacs_compile()
     end)
 end
 
-vim.keymap.set("n", "<leader>c", emacs_compile, { desc = "Emacs-style Compile" })
+vim.keymap.set("n", "<leader>c", function()
+    vim.cmd("update")
+    emacs_compile()
+end, { desc = "Emacs-style Compile" })
 
 -- Navigate compilation errors/warnings
 vim.keymap.set("n", "]q", "<cmd>cnext<CR>", { desc = "Next compilation error" })
