@@ -10,7 +10,13 @@ vim.pack.add({
 
     -- MINI
     { src = "https://github.com/nvim-mini/mini.nvim" },
+
+    -- Extras
+    { src = "https://github.com/SayC8/license_gen.nvim" },
 })
+
+-- License generator
+require("license_gen").setup({})
 
 -- MINI
 require("mini.icons").setup()
@@ -53,6 +59,9 @@ vim.keymap.set("n", "<leader>ff", MiniPick.builtin.files)
 vim.keymap.set("n", "<leader>fh", MiniPick.builtin.help)
 vim.keymap.set("n", "<leader>fb", MiniPick.builtin.buffers)
 vim.keymap.set("n", "<leader>/", MiniPick.builtin.grep_live)
+
+local MiniExtra = require("mini.extra")
+vim.keymap.set("n", "<leader>fc", MiniExtra.pickers.colorschemes)
 
 -- LSP
 local servers = { "lua_ls", "clangd", "ols", "ts_ls", "bashls" }

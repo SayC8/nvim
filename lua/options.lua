@@ -17,6 +17,7 @@ vim.opt.cursorline = true
 vim.opt.showmode = false
 vim.opt.laststatus = 3
 vim.opt.pumheight = 8
+vim.opt.winborder = "bold"
 
 -- Searching & Replace
 vim.opt.ignorecase = true
@@ -43,9 +44,9 @@ vim.opt.completeopt = { "menu", "menuone", "noselect" }
 vim.opt.completeopt:append("fuzzy")
 
 vim.api.nvim_create_autocmd("TextYankPost", {
-  desc = "Highlight when yanking (copying) text",
-  group = vim.api.nvim_create_augroup("kickstart-highlight-yank", { clear = true }),
-  callback = function()
-    vim.hl.on_yank()
-  end,
+    desc = "Highlight when yanking (copying) text",
+    group = vim.api.nvim_create_augroup("kickstart-highlight-yank", { clear = true }),
+    callback = function()
+        vim.hl.on_yank()
+    end,
 })

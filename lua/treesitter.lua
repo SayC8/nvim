@@ -1,7 +1,8 @@
 local treesitter = require("nvim-treesitter")
 
 local ensure_installed = {
-    "nim", "c", "lua", "odin",
+    "c", "lua", "odin",
+    "typescript", "html", "css",
 }
 
 treesitter.install(ensure_installed)
