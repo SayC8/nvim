@@ -50,7 +50,7 @@ local function emacs_compile()
                 end
             end,
             on_exit = function(_, exit_code)
-                local status = (exit_code == 0) and "finished" or ("exited abnormally with core " .. exit_code)
+                local status = (exit_code == 0) and "finished" or ("exited abnormally with code " .. exit_code)
                 vim.fn.setqflist({}, "a", { title = input, lines = { "Compilation " .. status } })
             end,
         })
