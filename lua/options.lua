@@ -34,7 +34,7 @@ vim.opt.splitbelow = true
 -- History & Performance
 vim.opt.undofile = true
 vim.opt.updatetime = 250
-vim.opt.timeoutlen = 400
+vim.opt.timeoutlen = 800
 
 -- Clipboard
 vim.opt.clipboard = "unnamedplus"
