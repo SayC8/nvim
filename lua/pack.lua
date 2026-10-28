@@ -1,6 +1,7 @@
 vim.pack.add({
     -- COLORSCHEME
     { src = "https://github.com/rebelot/kanagawa.nvim" },
+    { src = "https://github.com/Shatur/neovim-ayu.git" },
 
     -- LSP
     { src = "https://github.com/neovim/nvim-lspconfig" },
